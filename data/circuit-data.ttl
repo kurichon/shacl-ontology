@@ -1,0 +1,10 @@
+
+@prefix ex: <http://example.org/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Resistor1 a ex:Resistor ;
+    ex:hasResistanceValue "-5.0"^^xsd:float ;
+    ex:hasVoltageRating "12.0"^^xsd:float .
+
+ex:Capacitor1 a ex:Capacitor ;
+    ex:hasCapacitanceValue "22.0"^^xsd:float .

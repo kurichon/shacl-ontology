@@ -1,0 +1,25 @@
+
+@prefix ex: <http://example.org/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:ResistorShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Resistor ;
+  sh:property [
+    sh:path ex:hasResistanceValue ;
+    sh:datatype xsd:float ;
+    sh:minInclusive 0 ;
+    sh:message "Resistance must be greater than or equal to 0." ;
+  ] .
+
+ex:CapacitorShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Capacitor ;
+  sh:property [
+    sh:path ex:hasCapacitanceValue ;
+    sh:datatype xsd:float ;
+    sh:minInclusive 0 ;
+    sh:maxInclusive 100 ;
+    sh:message "Capacitance must be between 0 and 100 µF." ;
+  ] .

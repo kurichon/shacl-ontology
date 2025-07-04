@@ -1,7 +1,6 @@
 import csv
 
 # annotations = {subject: {property: value, ...}, ...}
-# (Assume you have already filled this dict as shown earlier.)
 
 # --- Variant A: full table (Entity, Property, Value) -------------
 with open("annotations.csv", "w", newline="", encoding="utf-8") as f:

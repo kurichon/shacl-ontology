@@ -1,0 +1,28 @@
+@prefix ex: <http://example.org/circuit#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:MyCircuit a ex:Circuit ;
+    ex:hasPart ex:C1,
+        ex:R1 .
+
+ex:hasPart a owl:ObjectProperty ;
+    rdfs:domain ex:Circuit ;
+    rdfs:range ex:Component .
+
+ex:hasResistance a owl:DatatypeProperty ;
+    rdfs:domain ex:Resistor ;
+    rdfs:range xsd:float .
+
+ex:C1 a ex:Capacitor .
+
+ex:Capacitor a owl:Class .
+
+ex:R1 a ex:Resistor ;
+    ex:hasResistance "1000"^^xsd:float .
+
+ex:Circuit a owl:Class .
+
+ex:Resistor a owl:Class .
+

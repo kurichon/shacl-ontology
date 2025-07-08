@@ -1,0 +1,44 @@
+@prefix ex: <http://example.org/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### Classes
+ex:Capacitor a owl:Class .
+ex:MeasuredValue a owl:Class .
+ex:Capacitance a owl:Class .
+ex:Vendor a owl:Class .
+
+### Object Properties
+ex:hasMeasuredValue a owl:ObjectProperty ;
+    rdfs:domain ex:Capacitor ;
+    rdfs:range ex:MeasuredValue .
+
+ex:propertyType a owl:ObjectProperty ;
+    rdfs:domain ex:MeasuredValue ;
+    rdfs:range ex:Capacitance .
+
+ex:source a owl:ObjectProperty ;
+    rdfs:domain ex:MeasuredValue ;
+    rdfs:range ex:Vendor .
+
+### Data Properties
+ex:value a owl:DatatypeProperty ;
+    rdfs:domain ex:MeasuredValue ;
+    rdfs:range xsd:decimal .
+
+ex:unit a owl:DatatypeProperty ;
+    rdfs:domain ex:MeasuredValue ;
+    rdfs:range xsd:string .
+
+### Individuals
+ex:Cap1 a ex:Capacitor .
+
+ex:VendorA a ex:Vendor ;
+    rdfs:label "Vendor A" .
+
+ex:Cap1_Capacitance a ex:MeasuredValue ;
+    ex:value "10.0"^^xsd:decimal ;
+    ex:unit "uF" ;
+    ex:propertyType ex:Capacitance ;
+    ex:source ex:VendorA .
+
+ex:Cap1 ex:hasMeasuredValue ex:Cap1_Capacitance .
